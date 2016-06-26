@@ -5,4 +5,4 @@
 [预览地址](http://jw.tvgonglue.com:8100/)
 
 作者: ZJC
-[我的简历](http://jw.tvgonglue.com/)
+[我的简历](http://tvgonglue.com/)
