@@ -1,0 +1,24 @@
+<ion-view view-title="英雄">
+  <ion-content>
+    <ion-list>
+      <div ng-show="!user.isAuthenticated">
+        <a class="item item-icon-right" href="#/tab/account">
+          请先登录
+          <i class="icon ion-chevron-right icon-accessory"></i>
+        </a>
+      </div>
+      <div ng-show="user.isAuthenticated">
+        <div class="item item-divider">
+        最常用的英雄
+        </div>
+        <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="chat in chats" type="item-text-wrap" href="#/tab/zhanji/{{chat.chatId}}">
+          <img ng-src="{{chat.attr.src}}">
+          <h2>{{chat.attr.title}}</h2>
+          <p>{{chat.attr.alt}}</p>
+          <i class="icon ion-chevron-right icon-accessory"></i>
+        </ion-item>
+        <p>数据查询API偶尔会不稳定，请耐心等待。</p>
+      </div>
+    </ion-list>
+  </ion-content>
+</ion-view>

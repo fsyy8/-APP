@@ -1,0 +1,38 @@
+<ion-view view-title="我">
+  <ion-content>
+    <ion-list>
+	  <div class="item item-avatar" href="#" ng-show="user.isAuthenticated===false">
+        <img src="img/avatar0.png">
+        <h2>还没登录</h2>
+        <p>快点登录吧</p>
+      </div>
+      <div class="row" ng-show="user.isAuthenticated===false">
+      	<a class="button button-small button-positive col col-45" href="/#/tab/account/login">
+		  登录
+		</a>
+		<div class="col col-10"></div>
+		<a class="button button-small button-positive col col-45" href="/#/tab/account/signup">
+		  注册
+		</a>
+      </div>
+      <div class="item item-avatar" ng-show="user.isAuthenticated===true">
+        <img src="img/user.jpg">
+        <h2>{{user.playername}}</h2>
+        <p>{{user.servername}}</p>
+      </div>
+      <div class="row" ng-show="user.isAuthenticated===true">
+      	<!-- <a class="button button-small button-positive col col-100" href="/#/tab/account/logout"> -->
+        <button ng-click="logout()" class="button button-small button-positive col col-45">
+    		  注销
+        </button>
+		<!-- </a> -->
+      </div>
+	  <div class="list">
+		<a class="item item-icon-right" href="/#/tab/account/about">
+		  关于
+		  <i class="icon ion-chevron-right icon-accessory"></i>
+		</a>
+		</div>
+    </ion-list>
+  </ion-content>
+</ion-view>

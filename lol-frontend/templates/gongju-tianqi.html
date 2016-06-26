@@ -1,0 +1,63 @@
+<ion-view view-title="召唤师资料查询">
+  <ion-content>
+    
+    <div class="list list-inset">
+      <div class="item item-divider">
+      请输入召唤师名称和所在服务器
+      </div>
+      <label class="item item-input item-select">
+        <div class="input-label">
+          服务器名称
+        </div>
+        <select id="tool1ServerName">
+          <option selected value="艾欧尼亚">艾欧尼亚  电信一</option>
+          <option value="祖安">祖安  电信二</option>
+          <option value="诺克萨斯">诺克萨斯  电信三</option>
+          <option value="班德尔城">班德尔城  电信四</option>
+          <option value="皮尔特沃夫">皮尔特沃夫 电信五</option>
+          <option value="战争学院">战争学院  电信六</option>
+          <option value="巨神峰">巨神峰 电信七</option>
+          <option value="雷瑟守备">雷瑟守备  电信八</option>
+          <option value="裁决之地">裁决之地  电信九</option>
+          <option value="黑色玫瑰">黑色玫瑰  电信十</option>
+          <option value="暗影岛">暗影岛 电信十一</option>
+          <option value="钢铁烈阳">钢铁烈阳  电信十二</option>
+          <option value="均衡教派">均衡教派  电信十三</option>
+          <option value="水晶之痕">水晶之痕  电信十四</option>
+          <option value="影流">影流  电信十五</option>
+          <option value="守望之海">守望之海  电信十六</option>
+          <option value="征服之海">征服之海  电信十七</option>
+          <option value="卡拉曼达">卡拉曼达  电信十八</option>
+          <option value="皮城警备">皮城警备  电信十九</option>
+          <option value="比尔吉沃特">比尔吉沃特 网通一</option>
+          <option value="德玛西亚">德玛西亚  网通二</option>
+          <option value="弗雷尔卓德">弗雷尔卓德 网通三</option>
+          <option value="无畏先锋">无畏先锋  网通四</option>
+          <option value="恕瑞玛">恕瑞玛 网通五</option>
+          <option value="扭曲丛林">扭曲丛林  网通六</option>
+          <option value="巨龙之巢">巨龙之巢  网通七</option>
+          <option value="教育网专区">教育网专区 教育一</option>
+        </select>
+      </label>
+      <label class="item item-input">
+        <span class="input-label">召唤师名称</span>
+        <input id="tool1PlayerName" type="text">
+      </label>
+      <div id="tool1Btn" class="item item-icon-left positive">
+        <i class="icon ion-search"></i>
+        查询
+      </div>
+    </div>
+		<div id="tool1ResultBox" class="card">
+      <div class="item item-divider">
+      查询结果
+      </div>      
+      <div id="tool1Result1" class="item item-avatar">
+        等待查询
+      </div>
+      <div id="tool1Result2" class="item item-body">      
+        等待查询
+      </div>
+    </div>    
+  </ion-content>
+</ion-view>
