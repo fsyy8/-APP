@@ -72,44 +72,34 @@ angular.module('starter.controllers', [])
 
 .controller('GongjuCtrl', function($scope) {})
 
-.controller('TianqiCtrl',function($scope) {
-  $("#tool1Btn").click(function(){
+.controller('TianqiCtrl',function($scope,$http) {
+  $scope.submit = function(){
     if($("#tool1PlayerName").val()==0){
       alert("请输入召唤师名称");
     }else{
-      $.ajax({
-        url: '/api',
-        type: 'GET',
-        dataType: 'json',
-        data:{
-          serverName: $("#tool1ServerName").val(),
-          playerName: $("#tool1PlayerName").val()
-        }
-      })
-      .done(function(json) {
-        if (json===null) {
+       $http
+      .get('/api?serverName='+ $("#tool1ServerName").val()+'&playerName='+ $("#tool1PlayerName").val())
+      .success(function (data, status, headers, config) {
+        if (data===null) {
           alert("未找到");
         }else{
           $("#tool1ResultBox").attr("ng-show",true);
           $("#tool1Result1").html(
-            '<img src="' + json.portrait 
+            '<img src="' + data.portrait 
             +'"><h2>' + $("#tool1PlayerName").val()
             +'</h2><p>' + $("#tool1ServerName").val()
             +'</p>');
           $("#tool1Result2").html(
-            '<p>等级:'+ json.level +'<br>战斗力:'+ json.zhandouli +'<br>被赞次数:'+
-            json.good + '(来自多玩)</p>'
+            '<p>等级:'+ data.level +'<br>战斗力:'+ data.zhandouli +'<br>被赞次数:'+
+            data.good + '(来自多玩)</p>'
             );
         }        
       })
-      .fail(function() {
+      .error(function (data, status, headers, config) {
         alert("查询失败");
-      })
-      .always(function() {
-        console.log("complete");
       });
     }    
-  });
+  };
 })
 
 .controller('AccountCtrl', function($scope, $window, User){
@@ -137,16 +127,10 @@ angular.module('starter.controllers', [])
         User.playername = profile.playername;
         User.servername = profile.servername;
         $location.path('/tab/account');
-        $.ajax({
-          url: '/hero',
-          type: 'GET',
-          dataType: 'json',
-          data:{
-            serverName: $scope.user.servername,
-            playerName: $scope.user.playername
-          }
-        })
-        .done(function(json) {
+
+        $http
+        .get('/hero?serverName='+ $scope.user.servername+'&playerName='+ $scope.user.playername)
+        .success(function (json, status, headers, config) {
           if(User.isAuthenticated){
             if (json===null) {
               alert("未找到");
@@ -159,11 +143,8 @@ angular.module('starter.controllers', [])
             }
           }
         })
-        .fail(function() {
-            alert("查询失败");
-        })
-        .always(function() {
-          console.log("complete");
+        .error(function (data, status, headers, config) {
+          alert("查询失败");
         });
       })
       .error(function (data, status, headers, config) {
