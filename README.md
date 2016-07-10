@@ -2,7 +2,7 @@
 英雄联盟战绩APP by-ZJC
 使用ionic+AngularJS+NodeJS开发
 
-[预览地址](http://jw.tvgonglue.com:8100/)
+[安卓版下载](http://pan.baidu.com/s/1skLUdtF)
 
 作者: ZJC
 [我的简历](http://tvgonglue.com/)
